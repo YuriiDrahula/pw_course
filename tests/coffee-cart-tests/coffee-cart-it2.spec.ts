@@ -3,7 +3,7 @@ import {
   MainCoffeePage,
   PaymentDetailsForm,
   PromoBanner,
-} from "../coffee-pages/CoffePages";
+} from "../../coffee-pages/CoffePages";
 
 test.beforeEach(({ page }) => {
   page.goto("https://coffee-cart.app/");

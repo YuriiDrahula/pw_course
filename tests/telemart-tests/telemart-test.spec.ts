@@ -19,12 +19,16 @@ test("TM-1: Check banners carrousel", async ({ page }) => {
   const activeVisibleBanner: Locator = page.locator(
     '//a[@class="swiper-slide swiper-slide-active"]'
   );
+  const nextBanner: Locator = page.locator(
+    '//a[@class="swiper-slide swiper-slide-next"]'
+  );
 
-  // There is more than 2 banner
+  // There are mote than two banners
   await expect(banners.length).toBeGreaterThan(2);
 
   await swipeButton.click();
   await page.waitForTimeout(1000);
+  const nextBannerLink: string | null = await nextBanner.getAttribute("href");
   await swipeButton.click();
 
   // Active banner that is now visible should have position 3
@@ -32,4 +36,12 @@ test("TM-1: Check banners carrousel", async ({ page }) => {
     "data-banner-position",
     "3"
   );
+
+  // Check the navigation after clicking banner
+  if (nextBannerLink) {
+    await activeVisibleBanner.click();
+    await expect(page).toHaveURL(nextBannerLink);
+  } else {
+    throw new Error("The next banner does not have a valid href attribute.");
+  }
 });

@@ -56,12 +56,18 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
       testDir: "tests/lalafo-tests",
     },
-
     {
       name: "telemart",
       use: { ...devices["Desktop Chrome"] },
       testDir: "tests/telemart-tests",
     },
+    
+    {
+      name: "code-tasks",
+      use: { ...devices["Desktop Chrome"] },
+      testDir: "tests/code-tasks",
+    },
+
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },

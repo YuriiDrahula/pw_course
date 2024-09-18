@@ -1,4 +1,5 @@
 import { test, expect, Locator } from "@playwright/test";
+import { removeUaFromUrl } from "./urlHelper";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("https://telemart.ua/ua/");
@@ -40,7 +41,8 @@ test("TM-1: Check banners carrousel", async ({ page }) => {
   // Check the navigation after clicking banner
   if (nextBannerLink) {
     await activeVisibleBanner.click();
-    await expect(page).toHaveURL(nextBannerLink);
+    const currentPageUrl: string = removeUaFromUrl(await page.url());
+    await expect(currentPageUrl).toBe(nextBannerLink);
   } else {
     throw new Error("The next banner does not have a valid href attribute.");
   }

@@ -17,17 +17,17 @@ export class MainCoffeePage {
     this.successMessage = page.locator('div[class="snackbar success"]');
   }
 
-  async addOneCupToCart(cupOfCoffee: string) {
+  async addCupToCart(cupOfCoffee: string) {
     await this.page.locator(`[data-test="${cupOfCoffee}"]`).click();
   }
 
-  async addPlusOneCup(coffeeName: string) {
+  async plusCup(coffeeName: string) {
     await this.page
       .locator(`button[aria-label="Add one ${coffeeName}"]`)
       .click();
   }
 
-  async removeOneCup(coffeeName: string) {
+  async removeCup(coffeeName: string) {
     await this.page
       .locator(`button[aria-label="Remove one ${coffeeName}"]`)
       .click();

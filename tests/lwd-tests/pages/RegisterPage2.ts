@@ -55,7 +55,7 @@ export class RegisterPage {
     await this.page.locator(`//a[contains(@href, "/@${user}/")]`).click();
   }
 
-  async verifyUserProfilelink(user: string) {
+  async verifyUserProfileLink(user: string) {
     await expect(this.page).toHaveURL(`/@${user}/`);
   }
 }

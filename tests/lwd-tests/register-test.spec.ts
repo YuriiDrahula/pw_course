@@ -1,15 +1,16 @@
 import { expect, test } from "@playwright/test";
-import { RegisterPage, newUser } from "./pages/RegisterPage";
+import { RegisterPage } from "./pages/RegisterPage";
 
-test("CD-1 test registration", async ({ page }) => {
+test("CD-1: test registration", async ({ page }) => {
   const registerPage = new RegisterPage(page);
-  const expectedUrl = `https://demo.learnwebdriverio.com/@${newUser.randomName.toLowerCase()}/`;
 
-  await page.goto("https://demo.learnwebdriverio.com/register");
-  await registerPage.register();
+  await registerPage.navigateToSignUpPage();
+  await registerPage.fillInputFields();
+  await registerPage.clickSignUpButton();
+
   await expect(registerPage.userProfileLink).toContainText(
-    newUser.randomName.toLowerCase()
+    registerPage.newUser.randomName
   );
-  await registerPage.userProfileLink.click();
-  await expect(page).toHaveURL(expectedUrl);
+  await registerPage.clickUserProfileLink();
+  await expect(page).toHaveURL(registerPage.expectedProfileUrl);
 });

@@ -47,7 +47,10 @@ export default defineConfig({
 
     {
       name: "learnwebdriverio-site",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: "https://demo.learnwebdriverio.com/",
+      },
       testDir: "tests/lwd-tests",
     },
 
@@ -61,7 +64,7 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
       testDir: "tests/telemart-tests",
     },
-    
+
     {
       name: "code-tasks",
       use: { ...devices["Desktop Chrome"] },

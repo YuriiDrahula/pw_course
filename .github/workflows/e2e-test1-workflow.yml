@@ -9,9 +9,9 @@ on:
         required: true
         default: "coffee-cart-tests"
         options:
-          - rztk
-          - coffee-cart
-          - condulit
+          - lwd-tests
+          - coffee-cart-tests
+          - pwsite-tests
 
 jobs:
   test:

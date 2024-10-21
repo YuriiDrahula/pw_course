@@ -71,6 +71,15 @@ export default defineConfig({
       testDir: "tests/code-tasks",
     },
 
+    {
+      name: "rozetka",
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: "https://hard.rozetka.com.ua/",
+      },
+      testDir: "tests/rozetka-tests",
+    },
+
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },

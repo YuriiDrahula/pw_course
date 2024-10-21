@@ -7,10 +7,10 @@ on:
         description: "choose a project that you want to run a test for?"
         type: choice
         required: true
-        default: "coffee-cart-tests"
+        default: "coffee-cart"
         options:
           - lwd-tests
-          - coffee-cart-tests
+          - coffee-cart
           - pwsite-tests
 
 jobs:

@@ -2,7 +2,10 @@
   "name": "playwright_course",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "rztk": "npx playwright test --project=rztk",
+    "coffee-cart": "npx playwright test --project=coffee-cart"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
